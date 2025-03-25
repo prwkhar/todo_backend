@@ -12,4 +12,16 @@ const addtask=asyncHandler(async(req,res)=>{
     res.json({message:"data recieved successfully",title,description});
 });
 
-export {gettask,addtask};
+const updatetask=asyncHandler(async(req,res)=>{
+    const {id}=req.params;
+    const {title}=req.body;
+    const task=await Task.findById(id);
+    if(!task){
+        res.json({message: "task not found"});
+    }
+    task.title=title||task.title;
+    await task.save();
+    res.json({message: "task updated successfully"});
+})
+
+export {gettask,addtask,updatetask};
