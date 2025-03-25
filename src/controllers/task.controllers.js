@@ -24,4 +24,10 @@ const updatetask=asyncHandler(async(req,res)=>{
     res.json({message: "task updated successfully"});
 })
 
-export {gettask,addtask,updatetask};
+const deletetask=asyncHandler(async(req,res)=>{
+    const {id}=req.params;
+    await Task.findByIdAndDelete(id);
+    res.json({message: "task deleted successfully"});
+})
+
+export {gettask,addtask,updatetask,deletetask};
