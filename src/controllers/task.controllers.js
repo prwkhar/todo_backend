@@ -1,18 +1,23 @@
 import { Task } from "../model/task.model.js";
 import { asyncHandler } from "../utils/asynchandler.js";
 
+//controller function to get task
 const gettask=asyncHandler(async(req,res)=>{
     const tasks=await Task.find({completed:false});
     const completed=await Task.find({completed: true});
+    //response on success error handled by async handler
     res.json({message:"task fetched successfully",tasks,completed});
 });
 
+//contorller function to add tasks
 const addtask=asyncHandler(async(req,res)=>{
     const {title,description,completed=false}=req.body;
     await Task.create({title,description,completed});
+
     res.json({message:"data recieved successfully",title,description});
 });
 
+//controller function to update task
 const updatetask=asyncHandler(async(req,res)=>{
     const {id}=req.params;
     const {title}=req.body;
@@ -25,12 +30,16 @@ const updatetask=asyncHandler(async(req,res)=>{
     res.json({message: "task updated successfully"});
 })
 
+
+//controller function to delete task
 const deletetask=asyncHandler(async(req,res)=>{
     const {id}=req.params;
     await Task.findByIdAndDelete(id);
     res.json({message: "task deleted successfully"});
 })
 
+
+//contorller function to update status
 const updatestatus=asyncHandler(async(req,res)=>{
     try {
         console.log("got the status update request");
@@ -49,4 +58,6 @@ const updatestatus=asyncHandler(async(req,res)=>{
     }
 })
 
+
+//exporting all the functions
 export {gettask,addtask,updatetask,deletetask,updatestatus};
