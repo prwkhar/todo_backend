@@ -1,6 +1,7 @@
 # Todo API
 
 This is a simple Todo API that allows users to perform CRUD operations on tasks. The API provides endpoints to create, fetch, update, and delete tasks.
+I have give postman collection in this simply run the program and test using postman.
 
 ## Features
 - Fetch all tasks with their completion status
@@ -19,8 +20,8 @@ Ensure you have the following installed:
 ### Steps to Run the Project
 1. Clone the repository:
    ```sh
-   git clone <your-repo-link>
-   cd <your-repo-name>
+   git clone <this-repo-link>
+   cd <this-repo-name>
    ```
 2. Install dependencies:
    ```sh
@@ -123,6 +124,4 @@ Ensure you have the following installed:
 A Postman collection is available to test the API:
 [Todo API Postman Collection](https://todo-api-9982.postman.co/workspace/11325559-93f6-4962-a953-2d4c9cecdbce/collection/39236614-1f820219-0938-4e87-874a-4b3797f77057?action=share&source=collection_link&creator=39236614)
 
-## License
-This project is licensed under the MIT License.
 
