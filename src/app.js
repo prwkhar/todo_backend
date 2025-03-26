@@ -1,5 +1,5 @@
 import express from 'express'
-import {addtask , gettask,updatetask,deletetask} from "./controllers/task.controllers.js"
+import {addtask , gettask,updatetask,deletetask,updatestatus} from "./controllers/task.controllers.js"
 import cors from "cors"
 const App=express();
 
@@ -16,5 +16,6 @@ App.get("/",gettask);
 App.post("/addtask",addtask);
 App.put("/updatetask/:id",updatetask);
 App.delete("/deletetask/:id",deletetask);
+App.put("/updatestatus/:id",updatestatus);
 
 export {App};
