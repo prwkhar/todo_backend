@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "1f820219-0938-4e87-874a-4b3797f77057",
+		"name": "TodoApi",
+		"description": "Collection to give an idea about what all api end points are there in the application and how to use them.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39236614",
+		"_collection_link": "https://todo-api-9982.postman.co/workspace/11325559-93f6-4962-a953-2d4c9cecdbce/collection/39236614-1f820219-0938-4e87-874a-4b3797f77057?action=share&source=collection_link&creator=39236614"
+	},
+	"item": [
+		{
+			"name": "Gettasks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"description": "This task will fetch all the task currently stored in the database with there completion status. If no task found then first add few task to test the working properly."
+			},
+			"response": []
+		},
+		{
+			"name": "addtask",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Read a book\",\r\n    \"description\": \"Read 50 pages of a novel\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/addtask",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"addtask"
+					]
+				},
+				"description": "This api will add the task to the data base give the title and description(optional) in the raw json fromat."
+			},
+			"response": []
+		},
+		{
+			"name": "updatetask",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/updatetask/67e3be942964014b0f637f84",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"updatetask",
+						"67e3be942964014b0f637f84"
+					]
+				},
+				"description": "Here enter the id which you will get when you do gettask api call. Put that id here and the new title or description the task will be updated accordingly.\n\n``` json\n{\n\"title\":\"enter your changed title\"\n\"description\":\"enter your changed description\"\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "deletetask",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/deletetask/67e3be942964014b0f637f84",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"deletetask",
+						"67e3be942964014b0f637f84"
+					]
+				},
+				"description": "Put the id of the task that you want to delete it will be delted accordingly"
+			},
+			"response": []
+		},
+		{
+			"name": "updatestatus",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"description": "Give the id of the task for which you want to update the status and give the status in raw json fomrat it will be updated accordingly.\n\n``` json\n{\n \"completed\":true\n}\n\n ```"
+			},
+			"response": []
+		}
+	]
+}
