@@ -10,7 +10,6 @@ const gettask=asyncHandler(async(req,res)=>{
         res.json({message:"task fetched successfully",tasks,completed});
     } catch (error) {
         res.status(500).json({message:"error fetching tasks",error});
-
     }
 });
 
