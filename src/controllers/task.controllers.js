@@ -3,10 +3,15 @@ import { asyncHandler } from "../utils/asynchandler.js";
 
 //controller function to get task
 const gettask=asyncHandler(async(req,res)=>{
-    const tasks=await Task.find({completed:false});
-    const completed=await Task.find({completed: true});
-    //response on success error handled by async handler
-    res.json({message:"task fetched successfully",tasks,completed});
+    try {
+        const tasks=await Task.find({completed:false});
+        const completed=await Task.find({completed: true});
+        //response on success error handled by async handler
+        res.json({message:"task fetched successfully",tasks,completed});
+    } catch (error) {
+        res.status(500).json({message:"error fetching tasks",error});
+
+    }
 });
 
 //contorller function to add tasks
